@@ -23,45 +23,88 @@ public class Algebra {
    		System.out.println(sqrt(76123));
 	}  
 
-	// Returns x1 + x2
+	
 	public static int plus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int result = x1;
+		if(x2>0)
+			for (int i = 0; i<x2; i++){
+			 result++;
+			} 
+		else
+			for (int i = 0; i<Math.abs(x2); i++){
+		 	result--;
+			}
+		return result;
 	}
 
-	// Returns x1 - x2
+
 	public static int minus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int result = x1;
+		if(x2>0)
+			for (int i = 0; i<x2; i++){
+			 result--;
+			} 
+		else
+			for (int i = 0; i<Math.abs(x2); i++){
+		 	result++;
+			}
+		return result;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int multiply = 0;
+		for (int i = 0; i<Math.abs(x2); i++){
+		 multiply = plus(Math.abs(x1), multiply);
+		}
+		if (x1 >0 && x2 >0 || x1 < 0 && x2 < 0 )
+		return multiply;
+		else
+		return minus(0, multiply);
 	}
 
-	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		// Replace the following statement with your code
-		return 0;
+		int pow = 1;
+		for (int i = 0; i<n; i++){
+		 pow = times(x, pow);
+		}
+		return pow;
 	}
 
-	// Returns the integer part of x1 / x2 
+
 	public static int div(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int counter = 0;
+		int sum = 0;
+		while (sum < Math.abs(x1)) {
+			sum = plus(Math.abs(x2), sum);
+			if (sum <= Math.abs(x1)){
+			counter++;
+			}
+		}
+		if (x1 >0 && x2 >0 || x1 < 0 && x2 < 0 )
+		return counter;
+		else
+		return minus(0, counter);
 	}
 
-	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+	   int div = div (x1, x2);
+	   int mult = times (x2 , div);
+		return minus (x1, mult);
 	}	
 
-	// Returns the integer part of sqrt(x) 
+
 	public static int sqrt(int x) {
-		// Replace the following statement with your code
-		return 0;
+		int i = 0;
+		while (times (i , i) < x){
+			i++;
+		}
+		if (mod( x , times(i, i)) != 0){
+	     return i-1;
+		}
+		else{
+		 return (i);
+
+		}
 	}	  	  
 }
