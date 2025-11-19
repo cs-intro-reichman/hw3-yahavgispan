@@ -25,30 +25,42 @@ public class Algebra {
 
 	
 	public static int plus(int x1, int x2) {
-		int sum = x2;
-		for (int i = 0; i<x1; i++){
-		 sum++;
-		}
-		return sum;
+		int result = x1;
+		if(x2>0)
+			for (int i = 0; i<x2; i++){
+			 result++;
+			} 
+		else
+			for (int i = 0; i<Math.abs(x2); i++){
+		 	result--;
+			}
+		return result;
 	}
 
 
 	public static int minus(int x1, int x2) {
-		int difference = x1;
-		for (int i = 0; i<x2; i++){
-		 difference--;
-		}
-		return difference;
+		int result = x1;
+		if(x2>0)
+			for (int i = 0; i<x2; i++){
+			 result--;
+			} 
+		else
+			for (int i = 0; i<Math.abs(x2); i++){
+		 	result++;
+			}
+		return result;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-		int multiply = x1;
-		for (int i = 1; i<x2; i++){
-		 multiply = plus(x1, multiply);
+		int multiply = 0;
+		for (int i = 0; i<Math.abs(x2); i++){
+		 multiply = plus(Math.abs(x1), multiply);
 		}
-		
+		if (x1 >0 && x2 >0 || x1 < 0 && x2 < 0 )
 		return multiply;
+		else
+		return minus(0, multiply);
 	}
 
 	public static int pow(int x, int n) {
