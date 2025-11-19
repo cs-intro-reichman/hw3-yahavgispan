@@ -75,13 +75,16 @@ public class Algebra {
 	public static int div(int x1, int x2) {
 		int counter = 0;
 		int sum = 0;
-		while (sum < x1) {
-			sum = plus(x2, sum);
+		while (sum < Math.abs(x1)) {
+			sum = plus(Math.abs(x2), sum);
 			if (sum <= x1){
 			counter++;
 			}
 		}
+		if (x1 >0 && x2 >0 || x1 < 0 && x2 < 0 )
 		return counter;
+		else
+		return minus(0, counter);
 	}
 
 	public static int mod(int x1, int x2) {
