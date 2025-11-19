@@ -88,13 +88,9 @@ public class Algebra {
 	}
 
 	public static int mod(int x1, int x2) {
-	    int counter = 0;
-		int sum = 0;
-		while (sum < x1) {
-			sum = plus(x2, sum);
-			counter++;
-		}
-		return minus(counter, div(x1, x2));
+	   int div = div (x1, x2);
+	   int mult = times (x2 , div);
+		return minus (x1, mult);
 	}	
 
 
