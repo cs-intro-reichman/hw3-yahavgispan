@@ -77,7 +77,7 @@ public class Algebra {
 		int sum = 0;
 		while (sum < Math.abs(x1)) {
 			sum = plus(Math.abs(x2), sum);
-			if (sum <= x1){
+			if (sum <= Math.abs(x1)){
 			counter++;
 			}
 		}
